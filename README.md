@@ -1,22 +1,24 @@
-# CODING AGENTS: READ THIS FIRST
+# NOVA Landing Page
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A concept landing page for **NOVA**, a digital product studio. This is the original design, converted into a standalone website with HTML5, CSS3, and vanilla JavaScript so it can run in a normal browser and on GitHub Pages.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Contents
 
-## What you should do — IMPORTANT
+- `index.html` — original page markup and inline layout
+- `css/style.css` — original base styles and hover/focus/active states
+- `js/main.js` — original navigation, reveal, and scroll behavior
+- `assets/` — reserved for images and other static files
 
-**Read `nova-single-page-design/project/NOVA.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Preview locally
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+Open `index.html` in a browser, or serve the folder:
 
-## About the design files
+```bash
+python -m http.server 8000
+```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Then visit http://127.0.0.1:8000/
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Deploy on GitHub Pages
 
-## Bundle contents
-
-- `nova-single-page-design/README.md` — this file
-- `nova-single-page-design/project/` — the `NOVA single-page design` project files (HTML prototypes, assets, components)
+Enable GitHub Pages from the `main` branch root (`/`). The live site will load `index.html` at the repository URL.

@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
 <meta name="description" content="NOVA is a digital product studio designing and building thoughtful products, websites and experiences for ambitious teams." />
 <meta property="og:title" content="NOVA — Digital Product Studio" />
 <meta property="og:description" content="Digital experiences, built to move businesses forward." />
@@ -18,54 +13,41 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<style>
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-  body { margin: 0; }
-  * { box-sizing: border-box; }
-  ::selection { background: var(--accent, #b3542c); color: #fff; }
-  a { color: inherit; text-decoration: none; }
-  a:hover { color: var(--accent, #b3542c); }
-  :focus-visible { outline: 2px solid var(--accent, #b3542c); outline-offset: 4px; border-radius: 2px; }
-  @keyframes nova-spin { to { transform: rotate(360deg); } }
-  @keyframes nova-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
-  }
-</style>
-</helmet>
-<div ref="{{ rootRef }}" style="--paper: oklch(0.973 0.005 85); --paper-2: oklch(0.945 0.007 85); --ink: oklch(0.19 0.01 60); --ink-2: oklch(0.45 0.012 60); --line: oklch(0.875 0.007 80); --accent: oklch(0.56 0.14 42); --deep: oklch(0.155 0.012 70); --deep-2: oklch(0.21 0.012 70); --deep-ink: oklch(0.96 0.005 85); --deep-ink-2: oklch(0.72 0.008 80); background: var(--paper); color: var(--ink); font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden;">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div id="nova-root" style="--paper: oklch(0.973 0.005 85); --paper-2: oklch(0.945 0.007 85); --ink: oklch(0.19 0.01 60); --ink-2: oklch(0.45 0.012 60); --line: oklch(0.875 0.007 80); --accent: oklch(0.56 0.14 42); --deep: oklch(0.155 0.012 70); --deep-2: oklch(0.21 0.012 70); --deep-ink: oklch(0.96 0.005 85); --deep-ink-2: oklch(0.72 0.008 80); background: var(--paper); color: var(--ink); font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden;">
 
-  <a href="#work" style="position: absolute; left: -9999px; top: 0; padding: 12px 18px; background: var(--ink); color: var(--paper); z-index: 200;" style-focus="left: 12px; top: 12px;">Skip to content</a>
+  <a class="scp0" href="#work" style="position: absolute; left: -9999px; top: 0; padding: 12px 18px; background: var(--ink); color: var(--paper); z-index: 200;">Skip to content</a>
 
-  <header ref="{{ navRef }}" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: color-mix(in oklab, var(--paper) 82%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color .35s ease, background .35s ease;">
+  <header id="nova-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: color-mix(in oklab, var(--paper) 82%, transparent); backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid transparent; transition: border-color .35s ease, background .35s ease;">
     <nav aria-label="Primary" style="max-width: 1560px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 72px); height: clamp(66px, 7vw, 82px); display: flex; align-items: center; justify-content: space-between; gap: 24px;">
       <a href="#top" aria-label="NOVA home" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size: 20px; letter-spacing: 0.24em; line-height: 1; display: flex; align-items: center; gap: 10px;">
         <span style="width: 9px; height: 9px; border-radius: 50%; background: var(--accent); display: inline-block;"></span>NOVA
       </a>
-      <div ref="{{ linksRef }}" style="display: flex; align-items: center; gap: clamp(20px, 2.4vw, 40px);">
-        <a data-navlink="work" href="#work" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;" style-hover="color: var(--ink);">Work<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a data-navlink="services" href="#services" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;" style-hover="color: var(--ink);">Services<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a data-navlink="approach" href="#approach" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;" style-hover="color: var(--ink);">Approach<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a data-navlink="about" href="#about" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;" style-hover="color: var(--ink);">About<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
-        <a href="#contact" style="font-size: 14px; letter-spacing: 0.02em; border: 1px solid var(--ink); border-radius: 100px; padding: 10px 20px; transition: background .3s ease, color .3s ease, border-color .3s ease;" style-hover="background: var(--ink); color: var(--paper); border-color: var(--ink);">Contact</a>
+      <div id="nova-nav-links" style="display: flex; align-items: center; gap: clamp(20px, 2.4vw, 40px);">
+        <a class="scp1" data-navlink="work" href="#work" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;">Work<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a class="scp2" data-navlink="services" href="#services" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;">Services<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a class="scp3" data-navlink="approach" href="#approach" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;">Approach<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a class="scp4" data-navlink="about" href="#about" style="position: relative; font-size: 14px; letter-spacing: 0.02em; color: var(--ink-2); padding: 6px 0; transition: color .25s ease;">About<span data-bar="" style="position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);"></span></a>
+        <a class="scp5" href="#contact" style="font-size: 14px; letter-spacing: 0.02em; border: 1px solid var(--ink); border-radius: 100px; padding: 10px 20px; transition: background .3s ease, color .3s ease, border-color .3s ease;">Contact</a>
       </div>
-      <button ref="{{ burgerRef }}" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nova-mobile-menu" onClick="{{ toggleMenu }}" style="display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); align-items: center; justify-content: center; flex-direction: column; gap: 5px; cursor: pointer; padding: 0;">
+      <button id="nova-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nova-mobile-menu" style="display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); align-items: center; justify-content: center; flex-direction: column; gap: 5px; cursor: pointer; padding: 0;">
         <span data-burger-line="" style="display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform .35s cubic-bezier(.2,.7,.2,1), opacity .2s ease;"></span>
         <span data-burger-line="" style="display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform .35s cubic-bezier(.2,.7,.2,1), opacity .2s ease;"></span>
       </button>
     </nav>
   </header>
 
-  <div ref="{{ menuRef }}" id="nova-mobile-menu" aria-hidden="true" style="position: fixed; inset: 0; z-index: 90; background: var(--paper); padding: clamp(90px, 16vw, 130px) clamp(24px, 6vw, 60px) 40px; display: flex; flex-direction: column; justify-content: space-between; opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity .4s ease, transform .5s cubic-bezier(.2,.7,.2,1), visibility .4s;">
+  <div id="nova-mobile-menu" aria-hidden="true" style="position: fixed; inset: 0; z-index: 90; background: var(--paper); padding: clamp(90px, 16vw, 130px) clamp(24px, 6vw, 60px) 40px; display: flex; flex-direction: column; justify-content: space-between; opacity: 0; visibility: hidden; transform: translateY(-12px); transition: opacity .4s ease, transform .5s cubic-bezier(.2,.7,.2,1), visibility .4s;">
     <div style="display: flex; flex-direction: column; gap: 4px;">
-      <a href="#work" onClick="{{ closeMenu }}" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">Work</a>
-      <a href="#services" onClick="{{ closeMenu }}" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">Services</a>
-      <a href="#approach" onClick="{{ closeMenu }}" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">Approach</a>
-      <a href="#about" onClick="{{ closeMenu }}" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">About</a>
+      <a href="#work" data-close-menu="" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">Work</a>
+      <a href="#services" data-close-menu="" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">Services</a>
+      <a href="#approach" data-close-menu="" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">Approach</a>
+      <a href="#about" data-close-menu="" style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(38px, 12vw, 60px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.15; padding: 6px 0; border-bottom: 1px solid var(--line);">About</a>
     </div>
     <div style="display: flex; flex-direction: column; gap: 18px;">
-      <a href="#contact" onClick="{{ closeMenu }}" style="display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--ink); color: var(--paper); border-radius: 100px; padding: 18px 26px; font-size: 16px;">Start a project<span aria-hidden="true">→</span></a>
+      <a href="#contact" data-close-menu="" style="display: inline-flex; align-items: center; justify-content: space-between; gap: 16px; background: var(--ink); color: var(--paper); border-radius: 100px; padding: 18px 26px; font-size: 16px;">Start a project<span aria-hidden="true">→</span></a>
       <p style="margin: 0; font-size: 13px; color: var(--ink-2); letter-spacing: 0.04em;">hello@nova.studio · Lisbon / Remote</p>
     </div>
   </div>
@@ -82,12 +64,12 @@
           <h1 id="hero-title" data-reveal="" data-delay="90" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(42px, 6.6vw, 104px); line-height: 0.98; letter-spacing: -0.045em; text-wrap: balance; opacity: 0; transform: translateY(22px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);">Digital experiences, built to move businesses <em style="font-style: italic; font-weight: 400; color: var(--accent);">forward.</em></h1>
           <p data-reveal="" data-delay="180" style="margin: clamp(24px, 3vw, 40px) 0 0; max-width: 46ch; font-size: clamp(16px, 1.25vw, 19px); line-height: 1.65; color: var(--ink-2); text-wrap: pretty; opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1) .05s, transform .9s cubic-bezier(.2,.7,.2,1) .05s;">We design and build thoughtful digital products, websites, and experiences for ambitious teams.</p>
           <div data-reveal="" data-delay="260" style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: clamp(32px, 4vw, 52px); opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);">
-            <a href="#work" style="display: inline-flex; align-items: center; gap: 12px; background: var(--ink); color: var(--paper); border-radius: 100px; padding: 17px 28px; font-size: 15px; letter-spacing: 0.01em; transition: background .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);" style-hover="background: var(--accent); color: var(--paper); transform: translateY(-2px);" style-active="transform: translateY(0);">View selected work<span aria-hidden="true">↓</span></a>
-            <a href="#contact" style="display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 100px; padding: 17px 28px; font-size: 15px; color: var(--ink); transition: border-color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);" style-hover="border-color: var(--ink); color: var(--ink); transform: translateY(-2px);" style-active="transform: translateY(0);">Start a project<span aria-hidden="true">→</span></a>
+            <a class="scp6 scp7" href="#work" style="display: inline-flex; align-items: center; gap: 12px; background: var(--ink); color: var(--paper); border-radius: 100px; padding: 17px 28px; font-size: 15px; letter-spacing: 0.01em; transition: background .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);">View selected work<span aria-hidden="true">↓</span></a>
+            <a class="scp8 scp9" href="#contact" style="display: inline-flex; align-items: center; gap: 12px; border: 1px solid var(--line); border-radius: 100px; padding: 17px 28px; font-size: 15px; color: var(--ink); transition: border-color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);">Start a project<span aria-hidden="true">→</span></a>
           </div>
         </div>
 
-        <div ref="{{ heroArtRef }}" aria-hidden="true" style="position: relative; min-width: 0; aspect-ratio: 1 / 1; max-height: 62vh; justify-self: center; width: 100%; max-width: 560px; will-change: transform;">
+        <div id="nova-hero-art" aria-hidden="true" style="position: relative; min-width: 0; aspect-ratio: 1 / 1; max-height: 62vh; justify-self: center; width: 100%; max-width: 560px; will-change: transform;">
           <div style="position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 50% 45%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 62%);"></div>
           <svg viewBox="0 0 400 400" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;">
             <circle cx="200" cy="200" r="196" fill="none" stroke="var(--line)" stroke-width="1"></circle>
@@ -119,7 +101,7 @@
         <p data-reveal="" data-delay="80" style="margin: 0; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-2); opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);">Three of twelve · 2023—2026</p>
       </div>
 
-      <article data-reveal="" data-tilt="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 56px); align-items: center; padding-bottom: clamp(40px, 5vw, 72px); border-bottom: 1px solid var(--line); opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); color: var(--ink);" style-hover="color: var(--accent);">
+      <article class="scp10" data-reveal="" data-tilt="" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(24px, 3vw, 56px); align-items: center; padding-bottom: clamp(40px, 5vw, 72px); border-bottom: 1px solid var(--line); opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); color: var(--ink);">
         <a href="#work" aria-label="AURA — Digital Commerce case study" style="position: relative; display: block; aspect-ratio: 16 / 11; background: var(--paper-2); overflow: hidden; border: 1px solid var(--line);">
           <span style="position: absolute; inset: 0; background: radial-gradient(circle at 32% 38%, color-mix(in oklab, var(--accent) 40%, transparent), transparent 55%);"></span>
           <span style="position: absolute; left: 12%; top: 16%; width: 46%; aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--ink); opacity: .5;"></span>
@@ -141,7 +123,7 @@
       </article>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(28px, 3.5vw, 56px); padding-top: clamp(40px, 5vw, 72px);">
-        <article data-reveal="" data-tilt="" style="opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); color: var(--ink);" style-hover="color: var(--accent);">
+        <article class="scp11" data-reveal="" data-tilt="" style="opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); color: var(--ink);">
           <a href="#work" aria-label="FRAME — Creative Platform case study" style="position: relative; display: block; aspect-ratio: 4 / 3; background: var(--paper-2); overflow: hidden; border: 1px solid var(--line);">
             <span style="position: absolute; left: 12%; top: 12%; right: 12%; bottom: 12%; border: 1px solid var(--ink); opacity: .35;"></span>
             <span style="position: absolute; left: 22%; top: 22%; right: 22%; bottom: 22%; border: 1px solid var(--ink); opacity: .55;"></span>
@@ -159,7 +141,7 @@
           </div>
         </article>
 
-        <article data-reveal="" data-delay="120" data-tilt="" style="opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); color: var(--ink);" style-hover="color: var(--accent);">
+        <article class="scp12" data-reveal="" data-delay="120" data-tilt="" style="opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); color: var(--ink);">
           <a href="#work" aria-label="NORTH — Financial Experience case study" style="position: relative; display: block; aspect-ratio: 4 / 3; background: var(--paper-2); overflow: hidden; border: 1px solid var(--line);">
             <span style="position: absolute; left: 14%; bottom: 18%; width: 9%; height: 22%; background: var(--ink); opacity: .25;"></span>
             <span style="position: absolute; left: 27%; bottom: 18%; width: 9%; height: 38%; background: var(--ink); opacity: .4;"></span>
@@ -188,22 +170,22 @@
           <p data-reveal="" data-delay="80" style="margin: 22px 0 0; max-width: 34ch; font-size: 16px; color: var(--ink-2); text-wrap: pretty; opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);">Four practices, one team. We work in small senior groups from first sketch through to production.</p>
         </div>
         <div style="min-width: 0;">
-          <div data-reveal="" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);" style-hover="color: var(--accent); border-color: var(--accent); padding-left: 14px;">
+          <div class="scp13" data-reveal="" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);">
             <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--ink-2); width: 34px;">01</span>
             <h3 style="margin: 0; flex: 1 1 220px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 2.4vw, 36px); letter-spacing: -0.03em; color: inherit;">Digital Products</h3>
             <p style="margin: 0; flex: 1 1 260px; max-width: 40ch; font-size: 15px; color: var(--ink-2);">End-to-end product design and front-end build: research, interface systems, prototypes, shipped code.</p>
           </div>
-          <div data-reveal="" data-delay="80" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);" style-hover="color: var(--accent); border-color: var(--accent); padding-left: 14px;">
+          <div class="scp14" data-reveal="" data-delay="80" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);">
             <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--ink-2); width: 34px;">02</span>
             <h3 style="margin: 0; flex: 1 1 220px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 2.4vw, 36px); letter-spacing: -0.03em; color: inherit;">Websites</h3>
             <p style="margin: 0; flex: 1 1 260px; max-width: 40ch; font-size: 15px; color: var(--ink-2);">Editorial, fast, hand-built sites with content models your team can actually live with.</p>
           </div>
-          <div data-reveal="" data-delay="160" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);" style-hover="color: var(--accent); border-color: var(--accent); padding-left: 14px;">
+          <div class="scp15" data-reveal="" data-delay="160" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);">
             <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--ink-2); width: 34px;">03</span>
             <h3 style="margin: 0; flex: 1 1 220px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 2.4vw, 36px); letter-spacing: -0.03em; color: inherit;">Brand Experiences</h3>
             <p style="margin: 0; flex: 1 1 260px; max-width: 40ch; font-size: 15px; color: var(--ink-2);">Identity, motion and art direction that hold up across every surface a brand touches.</p>
           </div>
-          <div data-reveal="" data-delay="240" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);" style-hover="color: var(--accent); padding-left: 14px;">
+          <div class="scp16" data-reveal="" data-delay="240" style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; padding: clamp(24px, 3vw, 38px) 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--ink); transition: color .35s ease, border-color .35s ease, padding-left .4s cubic-bezier(.2,.7,.2,1); opacity: 0; transform: translateY(18px);">
             <span style="font-size: 12px; letter-spacing: 0.2em; color: var(--ink-2); width: 34px;">04</span>
             <h3 style="margin: 0; flex: 1 1 220px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 2.4vw, 36px); letter-spacing: -0.03em; color: inherit;">AI &amp; Automation</h3>
             <p style="margin: 0; flex: 1 1 260px; max-width: 40ch; font-size: 15px; color: var(--ink-2);">Practical intelligence inside real workflows — assistants, retrieval and quiet automation.</p>
@@ -213,7 +195,7 @@
     </section>
 
     <section aria-label="Studio statement" style="background: var(--deep); color: var(--deep-ink); padding: clamp(90px, 14vw, 190px) clamp(20px, 4vw, 72px); overflow: hidden;">
-      <div ref="{{ statementRef }}" style="max-width: 1300px; margin: 0 auto; will-change: transform;">
+      <div id="nova-statement" style="max-width: 1300px; margin: 0 auto; will-change: transform;">
         <p data-reveal="" style="margin: 0 0 clamp(32px, 4vw, 56px); font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--deep-ink-2); opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);">Our belief</p>
         <blockquote style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 400; font-size: clamp(34px, 6.2vw, 96px); line-height: 1.02; letter-spacing: -0.04em; text-wrap: balance;">
           <span data-reveal="" style="display: block; opacity: 0; transform: translateY(26px); transition: opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1);">Good digital design doesn't</span>
@@ -229,22 +211,22 @@
         <p data-reveal="" data-delay="80" style="margin: 0; max-width: 40ch; font-size: 15px; color: var(--ink-2); opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1);">Four movements, six to twelve weeks. No handover cliff — the people who design it are the people who build it.</p>
       </div>
       <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line);">
-        <li data-reveal="" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);" style-hover="background: var(--paper-2); color: var(--accent);">
+        <li class="scp17" data-reveal="" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);">
           <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(30px, 3vw, 44px); font-weight: 500; letter-spacing: -0.03em; color: inherit;">01</span>
           <h3 style="margin: 18px 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Discover</h3>
           <p style="margin: 0; font-size: 15px; color: var(--ink-2);">Interviews, audits and a hard look at what the business actually needs.</p>
         </li>
-        <li data-reveal="" data-delay="90" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);" style-hover="background: var(--paper-2); color: var(--accent);">
+        <li class="scp18" data-reveal="" data-delay="90" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);">
           <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(30px, 3vw, 44px); font-weight: 500; letter-spacing: -0.03em; color: inherit;">02</span>
           <h3 style="margin: 18px 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Define</h3>
           <p style="margin: 0; font-size: 15px; color: var(--ink-2);">A sharp strategy, a scope we can defend, and the one idea worth building.</p>
         </li>
-        <li data-reveal="" data-delay="180" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);" style-hover="background: var(--paper-2); color: var(--accent);">
+        <li class="scp19" data-reveal="" data-delay="180" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);">
           <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(30px, 3vw, 44px); font-weight: 500; letter-spacing: -0.03em; color: inherit;">03</span>
           <h3 style="margin: 18px 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Build</h3>
           <p style="margin: 0; font-size: 15px; color: var(--ink-2);">Design and engineering in the same room, shipping in weekly increments.</p>
         </li>
-        <li data-reveal="" data-delay="270" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);" style-hover="background: var(--paper-2); color: var(--accent);">
+        <li class="scp20" data-reveal="" data-delay="270" style="background: var(--paper); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: clamp(28px, 3vw, 44px) clamp(20px, 2vw, 32px) clamp(34px, 4vw, 56px); color: var(--ink); transition: background .4s ease, color .4s ease; opacity: 0; transform: translateY(20px);">
           <span style="font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(30px, 3vw, 44px); font-weight: 500; letter-spacing: -0.03em; color: inherit;">04</span>
           <h3 style="margin: 18px 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);">Refine</h3>
           <p style="margin: 0; font-size: 15px; color: var(--ink-2);">Measure, tune, and hand over something your team is proud to own.</p>
@@ -285,7 +267,7 @@
         <h2 id="cta-title" data-reveal="" style="margin: 0; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(38px, 6.4vw, 104px); line-height: 0.98; letter-spacing: -0.045em; text-wrap: balance; opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);">Have something worth building?</h2>
         <div data-reveal="" data-delay="120" style="opacity: 0; transform: translateY(20px); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);">
           <p style="margin: 0 0 28px; max-width: 38ch; font-size: 17px; color: var(--deep-ink-2); text-wrap: pretty;">Tell us what you're working on. We reply to every note within two business days.</p>
-          <a href="mailto:hello@nova.studio" style="display: inline-flex; align-items: center; gap: 14px; background: var(--deep-ink); color: var(--deep); border-radius: 100px; padding: 19px 32px; font-size: 16px; transition: background .35s ease, color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);" style-hover="background: var(--accent); color: var(--deep-ink); transform: translateY(-2px);">Let's talk<span aria-hidden="true">→</span></a>
+          <a class="scp21" href="mailto:hello@nova.studio" style="display: inline-flex; align-items: center; gap: 14px; background: var(--deep-ink); color: var(--deep); border-radius: 100px; padding: 19px 32px; font-size: 16px; transition: background .35s ease, color .35s ease, transform .35s cubic-bezier(.2,.7,.2,1);">Let's talk<span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -323,162 +305,6 @@
     </div>
   </footer>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;oklch(0.56 0.14 42)&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;,&quot;options&quot;:[&quot;oklch(0.56 0.14 42)&quot;,&quot;oklch(0.56 0.14 150)&quot;,&quot;oklch(0.56 0.14 265)&quot;,&quot;oklch(0.56 0.14 330)&quot;]},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Light&quot;,&quot;options&quot;:[&quot;Light&quot;,&quot;Dark&quot;],&quot;tsType&quot;:&quot;'Light' | 'Dark'&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;reveals&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
-class Component extends DCLogic {
-  rootRef = React.createRef();
-  navRef = React.createRef();
-  linksRef = React.createRef();
-  burgerRef = React.createRef();
-  menuRef = React.createRef();
-  heroArtRef = React.createRef();
-  statementRef = React.createRef();
-  menuOpen = false;
-
-  renderVals() {
-    return {
-      rootRef: this.rootRef,
-      navRef: this.navRef,
-      linksRef: this.linksRef,
-      burgerRef: this.burgerRef,
-      menuRef: this.menuRef,
-      heroArtRef: this.heroArtRef,
-      statementRef: this.statementRef,
-      toggleMenu: () => this.setMenu(!this.menuOpen),
-      closeMenu: () => this.setMenu(false)
-    };
-  }
-
-  componentDidMount() {
-    const root = this.rootRef.current;
-    if (!root) return;
-    this.reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    this.applyProps();
-    this.setupReveal(root);
-    this.setupNav(root);
-    this.setupResponsive();
-    this.setupScroll();
-
-    this.onKey = (e) => { if (e.key === 'Escape' && this.menuOpen) this.setMenu(false); };
-    document.addEventListener('keydown', this.onKey);
-  }
-
-  componentDidUpdate() { this.applyProps(); }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.onKey);
-    window.removeEventListener('scroll', this.onScroll);
-    if (this.mq && this.mq.removeEventListener) this.mq.removeEventListener('change', this.onMq);
-    if (this.revealObs) this.revealObs.disconnect();
-    if (this.navObs) this.navObs.disconnect();
-  }
-
-  applyProps() {
-    const root = this.rootRef.current;
-    if (!root) return;
-    const accent = this.props.accent;
-    if (accent) root.style.setProperty('--accent', accent);
-    if (this.props.theme === 'Dark') {
-      root.style.setProperty('--paper', 'oklch(0.175 0.012 70)');
-      root.style.setProperty('--paper-2', 'oklch(0.225 0.012 70)');
-      root.style.setProperty('--ink', 'oklch(0.96 0.005 85)');
-      root.style.setProperty('--ink-2', 'oklch(0.74 0.008 80)');
-      root.style.setProperty('--line', 'oklch(0.31 0.012 70)');
-      root.style.setProperty('--deep', 'oklch(0.115 0.01 70)');
-      root.style.setProperty('--deep-2', 'oklch(0.20 0.012 70)');
-    }
-  }
-
-  setMenu(open) {
-    this.menuOpen = open;
-    const menu = this.menuRef.current, burger = this.burgerRef.current;
-    if (menu) {
-      menu.style.opacity = open ? '1' : '0';
-      menu.style.visibility = open ? 'visible' : 'hidden';
-      menu.style.transform = open ? 'translateY(0)' : 'translateY(-12px)';
-      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
-    if (burger) {
-      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      const lines = burger.querySelectorAll('[data-burger-line]');
-      if (lines[0]) lines[0].style.transform = open ? 'translateY(3.25px) rotate(45deg)' : 'none';
-      if (lines[1]) lines[1].style.transform = open ? 'translateY(-3.25px) rotate(-45deg)' : 'none';
-    }
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-
-  setupReveal(root) {
-    const items = root.querySelectorAll('[data-reveal]');
-    const show = (el) => {
-      const d = parseInt(el.getAttribute('data-delay') || '0', 10);
-      window.setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, this.reduced ? 0 : d);
-    };
-    if (this.reduced || this.props.reveals === false || !('IntersectionObserver' in window)) {
-      items.forEach((el) => { el.style.transition = 'none'; el.style.opacity = '1'; el.style.transform = 'none'; });
-      return;
-    }
-    this.revealObs = new IntersectionObserver((entries, obs) => {
-      entries.forEach((e) => { if (e.isIntersecting) { show(e.target); obs.unobserve(e.target); } });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
-    items.forEach((el) => this.revealObs.observe(el));
-  }
-
-  setupNav(root) {
-    const links = Array.from(root.querySelectorAll('[data-navlink]'));
-    const setActive = (id) => links.forEach((a) => {
-      const on = a.getAttribute('data-navlink') === id;
-      a.style.color = on ? 'var(--ink)' : 'var(--ink-2)';
-      const bar = a.querySelector('[data-bar]');
-      if (bar) bar.style.transform = on ? 'scaleX(1)' : 'scaleX(0)';
-      if (on) { a.setAttribute('aria-current', 'true'); } else { a.removeAttribute('aria-current'); }
-    });
-    const sections = ['work', 'services', 'approach', 'about'].map((id) => document.getElementById(id)).filter(Boolean);
-    if (!sections.length || !('IntersectionObserver' in window)) return;
-    this.navObs = new IntersectionObserver((entries) => {
-      const vis = entries.filter((e) => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      if (vis.length) setActive(vis[0].target.id);
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: [0, 0.2, 0.5] });
-    sections.forEach((s) => this.navObs.observe(s));
-  }
-
-  setupResponsive() {
-    this.mq = window.matchMedia('(max-width: 900px)');
-    this.onMq = () => {
-      const narrow = this.mq.matches;
-      if (this.linksRef.current) this.linksRef.current.style.display = narrow ? 'none' : 'flex';
-      if (this.burgerRef.current) this.burgerRef.current.style.display = narrow ? 'flex' : 'none';
-      if (!narrow && this.menuOpen) this.setMenu(false);
-    };
-    this.onMq();
-    if (this.mq.addEventListener) this.mq.addEventListener('change', this.onMq);
-  }
-
-  setupScroll() {
-    let ticking = false;
-    const update = () => {
-      ticking = false;
-      const y = window.scrollY || 0;
-      const nav = this.navRef.current;
-      if (nav) nav.style.borderBottomColor = y > 24 ? 'var(--line)' : 'transparent';
-      if (this.reduced) return;
-      const art = this.heroArtRef.current;
-      if (art) art.style.transform = 'translate3d(0,' + (y * -0.06).toFixed(2) + 'px,0)';
-      const st = this.statementRef.current;
-      if (st) {
-        const r = st.getBoundingClientRect();
-        if (r.bottom > 0 && r.top < window.innerHeight) {
-          const p = (window.innerHeight - r.top) / (window.innerHeight + r.height) - 0.5;
-          st.style.transform = 'translate3d(0,' + (p * -34).toFixed(2) + 'px,0)';
-        }
-      }
-    };
-    this.onScroll = () => { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    update();
-  }
-}
-</script>
+<script src="./js/main.js"></script>
 </body>
 </html>
